@@ -6,56 +6,7 @@
     <title>SPSS Viewer</title>
   </head>
   <body class="bg-slate-100">
-    <!-- excel-export-static: форма в HTML, не в JS-бандле — видна даже при старом кэше скриптов -->
-    <div
-      id="static-excel-export"
-      style="
-        margin: 0;
-        padding: 12px 16px;
-        background: #ecfdf5;
-        border-bottom: 3px solid #059669;
-        font:
-          14px system-ui,
-          -apple-system,
-          sans-serif;
-      "
-    >
-      <strong style="color: #065f46">Экспорт в Excel</strong>
-      <span style="margin: 0 10px; color: #047857">
-        листы: <code>values</code>, <code>labels</code>, <code>структура переменных</code>
-      </span>
-      <form
-        action="/api/sav-to-xlsx"
-        method="post"
-        enctype="multipart/form-data"
-        style="display: inline-flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 8px"
-      >
-        <input
-          type="file"
-          name="file"
-          accept=".sav,.SAV"
-          required
-          style="max-width: min(100vw - 32px, 360px)"
-        />
-        <button
-          type="submit"
-          style="
-            background: #059669;
-            color: #fff;
-            padding: 8px 18px;
-            border: none;
-            border-radius: 6px;
-            font-weight: 700;
-            cursor: pointer;
-          "
-        >
-          Скачать Excel
-        </button>
-      </form>
-      <p style="margin: 8px 0 0; font-size: 12px; color: #065f46">
-        Обычная HTML-форма на сервер: не зависит от обновления JS. Таблицы ниже — после «Upload .sav» в блоке просмотра.
-      </p>
-    </div>
+    <!-- spss-ui-v2: одна кнопка Excel (без зелёной полосы сверху). Если в «Просмотре кода» этого комментария нет — Railway отдаёт старую сборку. -->
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

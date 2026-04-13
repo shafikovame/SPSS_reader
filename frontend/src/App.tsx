@@ -71,8 +71,8 @@ export default function App() {
       <header className="rounded-md bg-white p-4 shadow-sm">
         <h1 className="text-xl font-semibold">SPSS Viewer</h1>
         <p className="mt-1 text-sm text-slate-600">
-          Просмотр содержимого и метаданных SPSS .sav без интерпретации. Экспорт в Excel (листы values, labels,
-          структура переменных) — кнопка ниже; после загрузки .sav она станет активной.
+          Просмотр содержимого и метаданных SPSS .sav без интерпретации. После загрузки файла можно скачать Excel с
+          листами values, labels и структура переменных.
         </p>
         <div className="mt-4 flex flex-wrap items-center gap-3">
           <label className="rounded bg-slate-900 px-3 py-2 text-sm font-medium text-white">
@@ -103,31 +103,16 @@ export default function App() {
 
       {summary && (
         <section className="rounded-md bg-white p-3 shadow-sm">
-          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-3 text-sm">
-            <div className="flex min-w-0 flex-1 flex-wrap items-center gap-x-4 gap-y-2">
-              <span className="min-w-0 break-all">
-                <strong>Файл:</strong> {summary.filename}
-              </span>
-              <span>
-                <strong>Строки:</strong> {summary.rows}
-              </span>
-              <span>
-                <strong>Переменные:</strong> {summary.variables}
-              </span>
-            </div>
-            <button
-              className={`shrink-0 rounded-md px-4 py-2 text-sm font-bold shadow-md ring-2 ring-offset-2 ${
-                canExportExcel && !exporting
-                  ? "bg-emerald-600 text-white ring-emerald-600 hover:bg-emerald-700"
-                  : "cursor-not-allowed bg-slate-200 text-slate-500 ring-slate-300"
-              }`}
-              disabled={!canExportExcel || exporting}
-              onClick={() => void handleExportExcel()}
-              title="Скачать Excel: листы values, labels, структура переменных"
-              type="button"
-            >
-              {exporting ? "Экспорт…" : "Скачать Excel"}
-            </button>
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 border-b border-slate-100 pb-3 text-sm">
+            <span className="min-w-0 break-all">
+              <strong>Файл:</strong> {summary.filename}
+            </span>
+            <span>
+              <strong>Строки:</strong> {summary.rows}
+            </span>
+            <span>
+              <strong>Переменные:</strong> {summary.variables}
+            </span>
           </div>
           <div className="mt-3 flex flex-wrap items-center gap-2">
             <button
@@ -171,8 +156,7 @@ export default function App() {
           <div className="flex h-full flex-col items-center justify-center gap-4 rounded-md bg-white p-6 text-center text-slate-500 shadow-sm">
             <p>Загрузите .sav файл для просмотра и экспорта.</p>
             <p className="max-w-md text-sm text-slate-600">
-              Кнопка «Скачать Excel (.xlsx)» в шапке станет активной сразу после успешной загрузки — одинаково для
-              всех пользователей этой страницы.
+              После загрузки .xlsx можно скачать кнопкой «Скачать Excel (.xlsx)» рядом с Upload.
             </p>
           </div>
         )}

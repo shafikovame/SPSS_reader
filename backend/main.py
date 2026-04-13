@@ -319,24 +319,6 @@ async def upload_sav(file: UploadFile = File(...)) -> dict[str, Any]:
     return {"id": dataset_id}
 
 
-@app.post("/api/sav-to-xlsx")
-async def sav_to_xlsx(file: UploadFile = File(...)) -> Response:
-    if not file.filename:
-        raise HTTPException(status_code=400, detail="Filename is required")
-    if not file.filename.lower().endswith(".sav"):
-        raise HTTPException(status_code=400, detail="Only .sav files are allowed")
-
-    contents = await file.read()
-    if len(contents) > MAX_FILE_SIZE:
-        raise HTTPException(
-            status_code=413,
-            detail=f"File exceeds MAX_FILE_SIZE ({MAX_FILE_SIZE} bytes)",
-        )
-
-    values_df, labels_df, variables_metadata = _load_sav_from_bytes(contents)
-    return _excel_response_for_sav(values_df, labels_df, variables_metadata, file.filename)
-
-
 @app.get("/api/dataset/{dataset_id}/summary")
 async def dataset_summary(dataset_id: str) -> dict[str, Any]:
     dataset = await store.get(dataset_id)
