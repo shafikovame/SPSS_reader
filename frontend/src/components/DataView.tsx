@@ -110,28 +110,28 @@ export function DataView({ datasetId, summary, mode }: DataViewProps) {
 
   return (
     <div className="flex h-full flex-col gap-3">
-      <div className="flex flex-wrap gap-3 rounded-md bg-white p-3 shadow-sm">
+      <div className="homm-panel flex flex-wrap gap-3 rounded-md p-3 shadow-sm">
         <input
-          className="w-72 rounded border border-slate-300 px-3 py-2 text-sm"
+          className="homm-input w-72 rounded px-3 py-2 text-sm"
           placeholder="Search variable..."
           value={variableSearch}
           onChange={(event) => setVariableSearch(event.target.value)}
         />
         <input
-          className="w-48 rounded border border-slate-300 px-3 py-2 text-sm"
+          className="homm-input w-48 rounded px-3 py-2 text-sm"
           placeholder="Case number"
           value={caseFilter}
           onChange={(event) => setCaseFilter(event.target.value)}
         />
       </div>
 
-      <div className="min-h-0 flex-1 overflow-auto rounded-md bg-white shadow-sm" ref={containerRef}>
-        <table className="min-w-full border-collapse text-sm">
-          <thead className="sticky top-0 z-10 bg-slate-50">
+      <div className="homm-panel min-h-0 flex-1 overflow-auto rounded-md shadow-sm" ref={containerRef}>
+        <table className="homm-table min-w-full border-collapse text-sm">
+          <thead className="sticky top-0 z-10">
             <tr>
-              <th className="w-20 border border-slate-200 px-2 py-2 text-left">Case</th>
+              <th className="w-20 border px-2 py-2 text-left">Case</th>
               {filteredColumns.map((column) => (
-                <th key={column} className="min-w-52 border border-slate-200 px-2 py-2 text-left">
+                <th key={column} className="min-w-52 border px-2 py-2 text-left">
                   {column}
                 </th>
               ))}
@@ -161,11 +161,11 @@ export function DataView({ datasetId, summary, mode }: DataViewProps) {
                     height: `${virtualRow.size}px`,
                   }}
                 >
-                  <td className="w-20 border border-slate-200 bg-slate-50 px-2 py-2">
+                  <td className="w-20 border px-2 py-2">
                     {absoluteIndex + 1}
                   </td>
                   {filteredColumns.map((column) => (
-                    <td key={column} className="min-w-52 border border-slate-200 px-2 py-2">
+                    <td key={column} className="min-w-52 border px-2 py-2">
                       {row ? displayValue(row[column]) : ""}
                     </td>
                   ))}

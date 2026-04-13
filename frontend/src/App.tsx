@@ -67,23 +67,23 @@ export default function App() {
   }
 
   return (
-    <div className="mx-auto flex h-screen w-full max-w-[1800px] flex-col gap-4 p-4">
-      <header className="rounded-md bg-white p-4 shadow-sm">
-        <h1 className="text-xl font-semibold">SPSS Viewer</h1>
-        <p className="mt-1 text-sm text-slate-600">
+    <div className="homm-ui mx-auto flex h-screen w-full max-w-[1800px] flex-col gap-4 p-4">
+      <header className="homm-panel rounded-md p-4 shadow-sm">
+        <h1 className="homm-title text-xl font-semibold uppercase tracking-wide">SPSS Viewer</h1>
+        <p className="homm-subtext mt-1 text-sm">
           Просмотр содержимого и метаданных SPSS .sav без интерпретации. После загрузки файла можно скачать Excel с
           листами values, labels и структура переменных.
         </p>
         <div className="mt-4 flex flex-wrap items-center gap-3">
-          <label className="rounded bg-slate-900 px-3 py-2 text-sm font-medium text-white">
+          <label className="homm-button rounded px-3 py-2 text-sm font-medium">
             Upload .sav
             <input type="file" className="hidden" accept=".sav" onChange={handleUpload} />
           </label>
           <button
             className={`rounded border-2 px-4 py-2 text-sm font-semibold shadow-sm ${
               canExportExcel && !exporting
-                ? "border-emerald-700 bg-emerald-600 text-white hover:bg-emerald-700"
-                : "cursor-not-allowed border-slate-300 bg-slate-100 text-slate-500"
+                ? "homm-button"
+                : "cursor-not-allowed border-stone-500 bg-stone-700/70 text-stone-400"
             }`}
             disabled={!canExportExcel || exporting}
             onClick={() => void handleExportExcel()}
@@ -96,14 +96,14 @@ export default function App() {
           >
             {exporting ? "Экспорт…" : "Скачать Excel (.xlsx)"}
           </button>
-          {loading && <span className="text-sm text-slate-600">Loading...</span>}
-          {error && <span className="text-sm text-red-600">{error}</span>}
+          {loading && <span className="homm-subtext text-sm">Loading...</span>}
+          {error && <span className="text-sm text-red-300">{error}</span>}
         </div>
       </header>
 
       {summary && (
-        <section className="rounded-md bg-white p-3 shadow-sm">
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 border-b border-slate-100 pb-3 text-sm">
+        <section className="homm-panel rounded-md p-3 shadow-sm">
+          <div className="homm-subtext flex flex-wrap items-center gap-x-4 gap-y-2 border-b border-amber-700/50 pb-3 text-sm">
             <span className="min-w-0 break-all">
               <strong>Файл:</strong> {summary.filename}
             </span>
@@ -116,14 +116,14 @@ export default function App() {
           </div>
           <div className="mt-3 flex flex-wrap items-center gap-2">
             <button
-              className={`rounded px-3 py-1.5 text-sm ${activeTab === "data" ? "bg-slate-900 text-white" : "bg-slate-100 text-slate-700"}`}
+              className={`rounded px-3 py-1.5 text-sm ${activeTab === "data" ? "homm-button" : "homm-button-muted"}`}
               onClick={() => setActiveTab("data")}
               type="button"
             >
               Данные
             </button>
             <button
-              className={`rounded px-3 py-1.5 text-sm ${activeTab === "variables" ? "bg-slate-900 text-white" : "bg-slate-100 text-slate-700"}`}
+              className={`rounded px-3 py-1.5 text-sm ${activeTab === "variables" ? "homm-button" : "homm-button-muted"}`}
               onClick={() => setActiveTab("variables")}
               type="button"
             >
@@ -132,14 +132,14 @@ export default function App() {
             {activeTab === "data" && (
               <div className="ml-4 flex items-center gap-2">
                 <button
-                  className={`rounded px-3 py-1.5 text-sm ${mode === "values" ? "bg-indigo-600 text-white" : "bg-slate-100 text-slate-700"}`}
+                  className={`rounded px-3 py-1.5 text-sm ${mode === "values" ? "homm-button" : "homm-button-muted"}`}
                   onClick={() => setMode("values")}
                   type="button"
                 >
                   Values
                 </button>
                 <button
-                  className={`rounded px-3 py-1.5 text-sm ${mode === "labels" ? "bg-indigo-600 text-white" : "bg-slate-100 text-slate-700"}`}
+                  className={`rounded px-3 py-1.5 text-sm ${mode === "labels" ? "homm-button" : "homm-button-muted"}`}
                   onClick={() => setMode("labels")}
                   type="button"
                 >
@@ -153,9 +153,9 @@ export default function App() {
 
       <main className="min-h-0 flex-1">
         {!summary && (
-          <div className="flex h-full flex-col items-center justify-center gap-4 rounded-md bg-white p-6 text-center text-slate-500 shadow-sm">
+          <div className="homm-panel homm-subtext flex h-full flex-col items-center justify-center gap-4 rounded-md p-6 text-center shadow-sm">
             <p>Загрузите .sav файл для просмотра и экспорта.</p>
-            <p className="max-w-md text-sm text-slate-600">
+            <p className="max-w-md text-sm">
               После загрузки .xlsx можно скачать кнопкой «Скачать Excel (.xlsx)» рядом с Upload.
             </p>
           </div>
