@@ -16,8 +16,8 @@ body {
     ),
     linear-gradient(180deg, #2c0e0d 0%, #190c0b 42%, #130a09 100%);
   cursor:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cg transform='rotate(-35 16 16)'%3E%3Cpath d='M15.5 3l2.3 2.3-1 3.8-3.8 1L10.7 8z' fill='%23fff2bf' stroke='%23312214' stroke-width='1.1'/%3E%3Cpath d='M13.7 9.4h4.6v12.8h-4.6z' fill='%23d8dbe2' stroke='%23312214' stroke-width='1.1'/%3E%3Cpath d='M14 10.2h4v11.1h-4z' fill='%23f7f9ff' opacity='0.62'/%3E%3Cpath d='M11 20.8h10v3.2H11z' fill='%23a27a37' stroke='%23312214' stroke-width='1.1'/%3E%3Cpath d='M15 24h2v4.3h-2z' fill='%2363412a' stroke='%23312214' stroke-width='1'/%3E%3Ccircle cx='16' cy='28.9' r='2.2' fill='%23d9b66a' stroke='%23312214' stroke-width='1'/%3E%3C/g%3E%3C/svg%3E")
-      3 3,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32' shape-rendering='crispEdges'%3E%3Cg transform='rotate(-45 16 16) translate(0.5 0.5)'%3E%3Crect x='15' y='4' width='2' height='1' fill='%23f2f2f2'/%3E%3Crect x='14' y='5' width='4' height='1' fill='%23d9d9d9'/%3E%3Crect x='14' y='6' width='4' height='11' fill='%23c9c9c9'/%3E%3Crect x='15' y='6' width='1' height='11' fill='%23f8f8f8'/%3E%3Crect x='16' y='6' width='1' height='11' fill='%23a7a7a7'/%3E%3Crect x='12' y='16' width='8' height='1' fill='%23220f0d'/%3E%3Crect x='12' y='17' width='8' height='2' fill='%23d8b357'/%3E%3Crect x='11' y='17' width='1' height='2' fill='%23a97b2b'/%3E%3Crect x='20' y='17' width='1' height='2' fill='%23a97b2b'/%3E%3Crect x='11' y='18' width='2' height='1' fill='%23c52f1b'/%3E%3Crect x='19' y='18' width='2' height='1' fill='%23c52f1b'/%3E%3Crect x='15' y='19' width='2' height='4' fill='%23906a2d'/%3E%3Crect x='15' y='23' width='2' height='2' fill='%23c52f1b'/%3E%3Crect x='14' y='24' width='4' height='2' fill='%23d8b357'/%3E%3Crect x='14' y='3' width='4' height='23' fill='none' stroke='%23220f0d' stroke-width='0.7'/%3E%3C/g%3E%3C/svg%3E")
+      4 4,
     auto;
 }
 
@@ -31,22 +31,24 @@ body {
 
 .homm-panel {
   position: relative;
-  border: 2px solid #8f221e;
+  border: 2px solid #bda15f;
   background:
-    linear-gradient(135deg, #b79a5d 0 13px, transparent 13px) top left / 28px 28px no-repeat,
-    linear-gradient(225deg, #b79a5d 0 13px, transparent 13px) top right / 28px 28px no-repeat,
-    linear-gradient(45deg, #b79a5d 0 13px, transparent 13px) bottom left / 28px 28px no-repeat,
-    linear-gradient(-45deg, #b79a5d 0 13px, transparent 13px) bottom right / 28px 28px no-repeat,
+    radial-gradient(circle at 0 0, rgba(240, 214, 145, 0.28) 0 12px, transparent 13px) top left / 28px 28px no-repeat,
+    radial-gradient(circle at 100% 0, rgba(240, 214, 145, 0.28) 0 12px, transparent 13px) top right / 28px 28px no-repeat,
+    radial-gradient(circle at 0 100%, rgba(240, 214, 145, 0.28) 0 12px, transparent 13px) bottom left / 28px 28px no-repeat,
+    radial-gradient(circle at 100% 100%, rgba(240, 214, 145, 0.28) 0 12px, transparent 13px) bottom right / 28px 28px no-repeat,
     repeating-linear-gradient(
-      45deg,
-      rgba(255, 219, 173, 0.05) 0 3px,
-      rgba(22, 11, 10, 0) 3px 11px
+      90deg,
+      rgba(255, 217, 146, 0.03) 0 1px,
+      rgba(0, 0, 0, 0) 1px 6px
     ),
-    linear-gradient(180deg, #4a1615 0%, #2a0f0f 42%, #22100e 100%);
+    linear-gradient(180deg, #250b0b 0%, #160909 36%, #120808 100%);
   box-shadow:
-    inset 0 0 0 1px #c8ab69,
-    inset 0 0 0 4px rgba(44, 17, 16, 0.8),
-    inset 0 0 22px rgba(0, 0, 0, 0.5),
+    inset 0 0 0 1px #f1cb7b,
+    inset 0 0 0 4px #2a1211,
+    inset 0 0 0 6px #8f1f20,
+    inset 0 0 0 8px #2a1211,
+    inset 0 0 22px rgba(0, 0, 0, 0.55),
     0 10px 24px rgba(0, 0, 0, 0.45);
 }
 
@@ -54,7 +56,7 @@ body {
   content: "";
   position: absolute;
   inset: 6px;
-  border: 1px solid rgba(214, 167, 91, 0.45);
+  border: 1px solid rgba(241, 196, 107, 0.33);
   box-shadow: inset 0 0 18px rgba(0, 0, 0, 0.2);
   pointer-events: none;
 }
@@ -73,15 +75,15 @@ body {
 }
 
 .homm-button {
-  border: 1px solid #c59a53;
+  border: 1px solid #d2b36a;
   background:
-    linear-gradient(180deg, rgba(255, 220, 161, 0.24) 0%, rgba(255, 220, 161, 0) 35%),
-    linear-gradient(180deg, #8f2d20 0%, #6f1e17 55%, #4f1512 100%);
+    linear-gradient(180deg, rgba(255, 225, 160, 0.27) 0%, rgba(255, 225, 160, 0) 30%),
+    linear-gradient(180deg, #9c201f 0%, #781717 48%, #4b0f11 100%);
   color: #f6dfb3;
-  text-shadow: 0 1px 0 #38160f;
+  text-shadow: 0 1px 0 #220b0b;
   box-shadow:
-    inset 0 1px 0 rgba(255, 226, 172, 0.35),
-    inset 0 -2px 0 rgba(34, 8, 7, 0.6);
+    inset 0 1px 0 rgba(255, 232, 181, 0.45),
+    inset 0 -2px 0 rgba(33, 7, 8, 0.7);
 }
 
 .homm-button:hover {
@@ -89,17 +91,18 @@ body {
 }
 
 .homm-button-muted {
-  border: 1px solid #754133;
-  background: linear-gradient(180deg, #5a221b 0%, #3d1713 100%);
-  color: #d8b58a;
+  border: 1px solid #8f7444;
+  background: linear-gradient(180deg, #4b1d1f 0%, #311214 100%);
+  color: #cfae81;
 }
 
 .homm-input {
-  border: 1px solid #9e7041;
+  border: 1px solid #b29458;
   color: #f2dfbf;
   background:
-    linear-gradient(180deg, rgba(255, 222, 170, 0.07) 0%, rgba(255, 222, 170, 0) 30%),
-    #1c1010;
+    linear-gradient(180deg, rgba(255, 220, 156, 0.09) 0%, rgba(255, 220, 156, 0) 28%),
+    linear-gradient(180deg, #2b0f12 0%, #1d0b0d 100%);
+  box-shadow: inset 0 0 0 1px rgba(90, 21, 24, 0.75);
 }
 
 .homm-input::placeholder {
@@ -107,7 +110,7 @@ body {
 }
 
 .homm-input:focus {
-  outline: 1px solid #d2b164;
+  outline: 1px solid #e2c37d;
   outline-offset: 0;
 }
 
@@ -117,35 +120,39 @@ body {
 
 .homm-table thead {
   background:
-    linear-gradient(135deg, rgba(255, 211, 154, 0.18) 0 10px, transparent 10px) 0 0 / 24px 24px,
-    linear-gradient(315deg, rgba(38, 21, 18, 0.3) 0 10px, transparent 10px) 12px 12px / 24px 24px,
-    linear-gradient(180deg, #7a3127 0%, #5a211a 56%, #431813 100%);
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 203, 120, 0.06) 0 1px,
+      rgba(0, 0, 0, 0) 1px 6px
+    ),
+    linear-gradient(180deg, #822120 0%, #631818 45%, #451113 100%);
 }
 
 .homm-table th,
 .homm-table td {
-  border-color: #8b3a2d;
+  border-color: #b28c4b;
+  text-shadow: 0 1px 0 rgba(17, 8, 8, 0.85);
 }
 
 .homm-table tbody tr:nth-child(odd) td {
   background:
-    linear-gradient(180deg, rgba(255, 219, 173, 0.035) 0%, rgba(255, 219, 173, 0) 45%),
-    rgba(54, 21, 18, 0.68);
+    linear-gradient(180deg, rgba(255, 222, 166, 0.07) 0%, rgba(255, 222, 166, 0) 48%),
+    linear-gradient(180deg, #4f1417 0%, #351012 100%);
 }
 
 .homm-table tbody tr:nth-child(even) td {
   background:
-    linear-gradient(180deg, rgba(255, 209, 152, 0.03) 0%, rgba(255, 209, 152, 0) 45%),
-    rgba(42, 17, 15, 0.72);
+    linear-gradient(180deg, rgba(255, 222, 166, 0.05) 0%, rgba(255, 222, 166, 0) 48%),
+    linear-gradient(180deg, #3f1113 0%, #2d0d0f 100%);
 }
 
 .homm-table tbody tr:hover td {
   background:
-    linear-gradient(180deg, rgba(255, 226, 172, 0.11) 0%, rgba(255, 226, 172, 0) 50%),
-    rgba(124, 41, 32, 0.6);
+    linear-gradient(180deg, rgba(255, 236, 181, 0.16) 0%, rgba(255, 236, 181, 0) 55%),
+    linear-gradient(180deg, #8a2322 0%, #64191a 100%);
   box-shadow:
-    inset 0 1px 0 rgba(255, 226, 165, 0.2),
-    inset 0 -1px 0 rgba(255, 175, 124, 0.1);
+    inset 0 1px 0 rgba(255, 233, 177, 0.28),
+    inset 0 -1px 0 rgba(255, 189, 138, 0.12);
   transition: background-color 120ms ease, box-shadow 120ms ease;
 }
 
@@ -156,7 +163,7 @@ input[type="file"],
 input[type="submit"],
 input[type="button"] {
   cursor:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cg transform='rotate(-35 16 16)'%3E%3Cpath d='M15.5 3l2.3 2.3-1 3.8-3.8 1L10.7 8z' fill='%23fff6ca' stroke='%2328180d' stroke-width='1.2'/%3E%3Cpath d='M13.6 9.3h4.8v13h-4.8z' fill='%23e6e9ef' stroke='%2328180d' stroke-width='1.2'/%3E%3Cpath d='M14 10.1h4v11.4h-4z' fill='%23ffffff' opacity='0.62'/%3E%3Cpath d='M10.7 20.7h10.6v3.4H10.7z' fill='%23c79a4c' stroke='%2328180d' stroke-width='1.2'/%3E%3Cpath d='M14.9 24h2.2v4.5h-2.2z' fill='%2370482a' stroke='%2328180d' stroke-width='1.1'/%3E%3Ccircle cx='16' cy='29' r='2.3' fill='%23f0cb78' stroke='%2328180d' stroke-width='1.1'/%3E%3C/g%3E%3C/svg%3E")
-      3 3,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32' shape-rendering='crispEdges'%3E%3Cg transform='rotate(-45 16 16) translate(0.5 0.5)'%3E%3Crect x='15' y='4' width='2' height='1' fill='%23ffffff'/%3E%3Crect x='14' y='5' width='4' height='1' fill='%23ececec'/%3E%3Crect x='14' y='6' width='4' height='11' fill='%23d7d7d7'/%3E%3Crect x='15' y='6' width='1' height='11' fill='%23ffffff'/%3E%3Crect x='16' y='6' width='1' height='11' fill='%23b7b7b7'/%3E%3Crect x='12' y='16' width='8' height='1' fill='%23220f0d'/%3E%3Crect x='12' y='17' width='8' height='2' fill='%23e1bc63'/%3E%3Crect x='11' y='17' width='1' height='2' fill='%23b48533'/%3E%3Crect x='20' y='17' width='1' height='2' fill='%23b48533'/%3E%3Crect x='11' y='18' width='2' height='1' fill='%23d64325'/%3E%3Crect x='19' y='18' width='2' height='1' fill='%23d64325'/%3E%3Crect x='15' y='19' width='2' height='4' fill='%23a27a38'/%3E%3Crect x='15' y='23' width='2' height='2' fill='%23d64325'/%3E%3Crect x='14' y='24' width='4' height='2' fill='%23e1bc63'/%3E%3Crect x='14' y='3' width='4' height='23' fill='none' stroke='%231c0b09' stroke-width='0.7'/%3E%3C/g%3E%3C/svg%3E")
+      4 4,
     pointer;
 }
