@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   downloadExcelExport,
   getSummary,
@@ -22,6 +22,7 @@ export default function App() {
   const [loading, setLoading] = useState(false);
   const [exporting, setExporting] = useState(false);
   const [error, setError] = useState("");
+  const themeAudioRef = useRef<HTMLAudioElement | null>(null);
 
   function playClickSound() {
     const audioContext = new (window.AudioContext || (window as typeof window & { webkitAudioContext?: typeof AudioContext }).webkitAudioContext)();
@@ -38,6 +39,28 @@ export default function App() {
     oscillator.start();
     oscillator.stop(audioContext.currentTime + 0.065);
   }
+
+  async function playThemeMusic() {
+    if (!themeAudioRef.current) {
+      themeAudioRef.current = new Audio("/homm-theme.mp3");
+      themeAudioRef.current.loop = true;
+      themeAudioRef.current.volume = 0.35;
+    }
+    try {
+      await themeAudioRef.current.play();
+    } catch {
+      // Ignore autoplay restrictions or missing file.
+    }
+  }
+
+  useEffect(() => {
+    return () => {
+      if (themeAudioRef.current) {
+        themeAudioRef.current.pause();
+        themeAudioRef.current = null;
+      }
+    };
+  }, []);
 
   async function handleUpload(event: React.ChangeEvent<HTMLInputElement>) {
     const file = event.target.files?.[0];
@@ -57,6 +80,7 @@ export default function App() {
       setVariables(variablesPayload);
       setActiveTab("data");
       setMode("values");
+      await playThemeMusic();
     } catch (uploadError) {
       setError(uploadError instanceof Error ? uploadError.message : "Upload failed");
     } finally {
