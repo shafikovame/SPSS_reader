@@ -23,6 +23,22 @@ export default function App() {
   const [exporting, setExporting] = useState(false);
   const [error, setError] = useState("");
 
+  function playClickSound() {
+    const audioContext = new (window.AudioContext || (window as typeof window & { webkitAudioContext?: typeof AudioContext }).webkitAudioContext)();
+    const oscillator = audioContext.createOscillator();
+    const gain = audioContext.createGain();
+    oscillator.type = "square";
+    oscillator.frequency.setValueAtTime(740, audioContext.currentTime);
+    oscillator.frequency.exponentialRampToValueAtTime(520, audioContext.currentTime + 0.05);
+    gain.gain.setValueAtTime(0.0001, audioContext.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.06, audioContext.currentTime + 0.01);
+    gain.gain.exponentialRampToValueAtTime(0.0001, audioContext.currentTime + 0.06);
+    oscillator.connect(gain);
+    gain.connect(audioContext.destination);
+    oscillator.start();
+    oscillator.stop(audioContext.currentTime + 0.065);
+  }
+
   async function handleUpload(event: React.ChangeEvent<HTMLInputElement>) {
     const file = event.target.files?.[0];
     if (!file) {
@@ -75,7 +91,7 @@ export default function App() {
           листами values, labels и структура переменных.
         </p>
         <div className="mt-4 flex flex-wrap items-center gap-3">
-          <label className="homm-button rounded px-3 py-2 text-sm font-medium">
+          <label className="homm-button rounded px-3 py-2 text-sm font-medium" onClick={playClickSound}>
             Upload .sav
             <input type="file" className="hidden" accept=".sav" onChange={handleUpload} />
           </label>
@@ -86,7 +102,10 @@ export default function App() {
                 : "cursor-not-allowed border-stone-500 bg-stone-700/70 text-stone-400"
             }`}
             disabled={!canExportExcel || exporting}
-            onClick={() => void handleExportExcel()}
+            onClick={() => {
+              playClickSound();
+              void handleExportExcel();
+            }}
             title={
               canExportExcel
                 ? "Скачать .xlsx: листы values, labels, структура переменных"
@@ -96,7 +115,7 @@ export default function App() {
           >
             {exporting ? "Экспорт…" : "Скачать Excel (.xlsx)"}
           </button>
-          {loading && <span className="homm-subtext text-sm">Loading...</span>}
+          {loading && <span className="homm-loading text-sm">Loading...</span>}
           {error && <span className="text-sm text-red-300">{error}</span>}
         </div>
       </header>
@@ -117,14 +136,20 @@ export default function App() {
           <div className="mt-3 flex flex-wrap items-center gap-2">
             <button
               className={`rounded px-3 py-1.5 text-sm ${activeTab === "data" ? "homm-button" : "homm-button-muted"}`}
-              onClick={() => setActiveTab("data")}
+              onClick={() => {
+                playClickSound();
+                setActiveTab("data");
+              }}
               type="button"
             >
               Данные
             </button>
             <button
               className={`rounded px-3 py-1.5 text-sm ${activeTab === "variables" ? "homm-button" : "homm-button-muted"}`}
-              onClick={() => setActiveTab("variables")}
+              onClick={() => {
+                playClickSound();
+                setActiveTab("variables");
+              }}
               type="button"
             >
               Структура переменных
@@ -133,14 +158,20 @@ export default function App() {
               <div className="ml-4 flex items-center gap-2">
                 <button
                   className={`rounded px-3 py-1.5 text-sm ${mode === "values" ? "homm-button" : "homm-button-muted"}`}
-                  onClick={() => setMode("values")}
+                  onClick={() => {
+                    playClickSound();
+                    setMode("values");
+                  }}
                   type="button"
                 >
                   Values
                 </button>
                 <button
                   className={`rounded px-3 py-1.5 text-sm ${mode === "labels" ? "homm-button" : "homm-button-muted"}`}
-                  onClick={() => setMode("labels")}
+                  onClick={() => {
+                    playClickSound();
+                    setMode("labels");
+                  }}
                   type="button"
                 >
                   Labels
