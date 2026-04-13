@@ -110,7 +110,7 @@ export function DataView({ datasetId, summary, mode }: DataViewProps) {
 
   return (
     <div className="flex h-full flex-col gap-3">
-      <div className="homm-panel flex flex-wrap gap-3 rounded-md p-3 shadow-sm">
+      <div className="homm-panel homm-cornered flex flex-wrap gap-3 rounded-md p-3 shadow-sm">
         <input
           className="homm-input w-72 rounded px-3 py-2 text-sm"
           placeholder="Search variable..."

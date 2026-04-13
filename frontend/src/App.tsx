@@ -108,7 +108,7 @@ export default function App() {
 
   return (
     <div className="homm-ui mx-auto flex h-screen w-full max-w-[1800px] flex-col gap-4 p-4">
-      <header className="homm-panel rounded-md p-4 shadow-sm">
+      <header className="homm-panel homm-cornered rounded-md p-4 shadow-sm">
         <h1 className="homm-title text-xl font-semibold uppercase tracking-wide">SPSS Viewer</h1>
         <p className="homm-subtext mt-1 text-sm">
           Просмотр содержимого и метаданных SPSS .sav без интерпретации. После загрузки файла можно скачать Excel с
@@ -145,7 +145,7 @@ export default function App() {
       </header>
 
       {summary && (
-        <section className="homm-panel rounded-md p-3 shadow-sm">
+        <section className="homm-panel homm-cornered rounded-md p-3 shadow-sm">
           <div className="homm-subtext flex flex-wrap items-center gap-x-4 gap-y-2 border-b border-amber-700/50 pb-3 text-sm">
             <span className="min-w-0 break-all">
               <strong>Файл:</strong> {summary.filename}
